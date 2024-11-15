@@ -18,7 +18,7 @@ namespace BupaMOTApp.Services
         public async Task<VehicleMOT> GetMOTDetailsAsync(string registration)
         {
             // The base URL for the MOT API endpoint
-            var url = $"https://beta.check-mot.service.gov.uk/trade/vehicles/mot-tests?registration={registration}";
+            var url = $"trade/vehicles/mot-tests?registration={registration}";
 
             _httpClient.DefaultRequestHeaders.Clear();
             _httpClient.DefaultRequestHeaders.Add("x-api-key", "fZi8YcjrZN1cGkQeZP7Uaa4rTxua8HovaswPuIno"); //this is the API key we need to be able to retrieve the information
