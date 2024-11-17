@@ -14,28 +14,31 @@
 
 @if (vehicleMOT != null)
 {
-  <div>
-        <h4>Vehicle Information</h4>
-        <p><strong>Make:</strong> @vehicleMOT.Make</p>
-        <p><strong>Model:</strong> @vehicleMOT.Model</p>
-        <p><strong>Colour:</strong> @vehicleMOT.PrimaryColour</p>
-        <p><strong>MOT Expiry Date:</strong> @vehicleMOT.MostRecentExpiryDate</p>
-        <p><strong>Mileage at Last MOT:</strong> @vehicleMOT.MostRecentMileage</p>
+    <div class="card card-custom">
+        <div class="card-header">
+            <h5 class="card-title">Vehicle Information</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Make:</strong> @vehicleMOT.Make</p>
+            <p><strong>Model:</strong> @vehicleMOT.Model</p>
+            <p><strong>Colour:</strong> @vehicleMOT.PrimaryColour</p>
+            <p><strong>MOT Expiry Date:</strong> @vehicleMOT.MostRecentExpiryDate</p>
+            <p><strong>Mileage at Last MOT:</strong> @vehicleMOT.MostRecentMileage</p>
+        </div>
     </div>
 }
 
 @code {
      private string registrationNumber = string.Empty;  // Initialize with an empty string
-    private VehicleMOT? vehicleMOT = null;  // Make vehicleMOT nullable
-
+    private VehicleMOT? vehicleMOT = null;  
 
     private async Task GetMOTDetails()
     {
-        Console.WriteLine("**DEBUG** Entering GetMOTDetails method");
+        //Console.WriteLine("**DEBUG** Entering GetMOTDetails method");
         if (!string.IsNullOrEmpty(registrationNumber))
         {
             vehicleMOT = await MOTService.GetMOTDetailsAsync(registrationNumber);
-            Console.WriteLine($"MOT details fetched: {vehicleMOT?.Make}");
+            //Console.WriteLine($"MOT details fetched: {vehicleMOT?.Make}");
         }
         else
         {
