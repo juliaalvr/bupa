@@ -14,19 +14,20 @@
 
 @if (vehicleMOT != null)
 {
-    <div>
+ <div>
         <h4>Vehicle Information</h4>
         <p><strong>Make:</strong> @vehicleMOT.Make</p>
         <p><strong>Model:</strong> @vehicleMOT.Model</p>
-        <p><strong>Colour:</strong> @vehicleMOT.Colour</p>
-        <p><strong>MOT Expiry Date:</strong> @vehicleMOT.MOTExpiryDate</p>
-        <p><strong>Mileage at Last MOT:</strong> @vehicleMOT.MileageAtLastMOT</p>
+        <p><strong>Colour:</strong> @vehicleMOT.PrimaryColour</p>  <!-- Updated property name -->
+        <p><strong>MOT Expiry Date:</strong> @vehicleMOT.MostRecentExpiryDate</p>  <!-- Updated property name -->
+        <p><strong>Mileage at Last MOT:</strong> @vehicleMOT.MostRecentMileage</p>  <!-- Updated property name -->
     </div>
 }
 
 @code {
-    private string registrationNumber;
-    private VehicleMOT vehicleMOT;
+     private string registrationNumber = string.Empty;  // Initialize with an empty string
+    private VehicleMOT? vehicleMOT = null;  // Make vehicleMOT nullable
+
 
     private async Task GetMOTDetails()
     {
