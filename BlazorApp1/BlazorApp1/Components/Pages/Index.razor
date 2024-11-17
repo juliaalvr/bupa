@@ -1,0 +1,45 @@
+@page "/"
+@rendermode InteractiveServer
+@using BupaMOTApp.Services  <!-- Import the MOTService namespace -->
+@inject MOTService MOTService
+
+
+<h3>Vehicle MOT Details</h3>
+
+<div>
+    <label for="registration">Enter Registration Number:</label>
+    <input id="registration" @bind="registrationNumber" type="text" />
+    <button @onclick="GetMOTDetails">Get MOT Details</button>
+</div>
+
+@if (vehicleMOT != null)
+{
+  <div>
+        <h4>Vehicle Information</h4>
+        <p><strong>Make:</strong> @vehicleMOT.Make</p>
+        <p><strong>Model:</strong> @vehicleMOT.Model</p>
+        <p><strong>Colour:</strong> @vehicleMOT.PrimaryColour</p>
+        <p><strong>MOT Expiry Date:</strong> @vehicleMOT.MostRecentExpiryDate</p>
+        <p><strong>Mileage at Last MOT:</strong> @vehicleMOT.MostRecentMileage</p>
+    </div>
+}
+
+@code {
+     private string registrationNumber = string.Empty;  // Initialize with an empty string
+    private VehicleMOT? vehicleMOT = null;  // Make vehicleMOT nullable
+
+
+    private async Task GetMOTDetails()
+    {
+        Console.WriteLine("**DEBUG** Entering GetMOTDetails method");
+        if (!string.IsNullOrEmpty(registrationNumber))
+        {
+            vehicleMOT = await MOTService.GetMOTDetailsAsync(registrationNumber);
+            Console.WriteLine($"MOT details fetched: {vehicleMOT?.Make}");
+        }
+        else
+        {
+            Console.WriteLine("Registration number is empty!");
+        }
+    }
+}
