@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Register the MOTService for dependency injection
 builder.Services.AddScoped<MOTService>(); 
 
+
 // Register HttpClient with a base address 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://beta.check-mot.service.gov.uk/") }); // Set the API base URL
 
@@ -24,7 +25,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 
 app.UseAntiforgery();

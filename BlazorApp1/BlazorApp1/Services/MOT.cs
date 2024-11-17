@@ -15,8 +15,9 @@ namespace BupaMOTApp.Services
             _httpClient = httpClient;
         }
 
-        public async Task<VehicleMOT> GetMOTDetailsAsync(string registration)
+        public async Task<VehicleMOT?> GetMOTDetailsAsync(string registration)
         {
+            
             // The base URL for the MOT API endpoint
             var url = $"trade/vehicles/mot-tests?registration={registration}";
 
@@ -41,10 +42,10 @@ namespace BupaMOTApp.Services
 
     public class VehicleMOT
     {
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public string Colour { get; set; }
-        public string MOTExpiryDate { get; set; }
+        public string? Make { get; set; }
+        public string? Model { get; set; }
+        public string? Colour { get; set; }
+        public string? MOTExpiryDate { get; set; }
         public int MileageAtLastMOT { get; set; }
     }
 }
