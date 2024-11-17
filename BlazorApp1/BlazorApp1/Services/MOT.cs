@@ -4,7 +4,9 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks; //asynchronous methods
 using System; // For Console.WriteLine()
-
+using System; // For Console.WriteLine()
+using System.Linq; // To use LINQ for ordering
+using System.Text.Json.Serialization; 
 
 namespace BupaMOTApp.Services
 {
@@ -52,8 +54,12 @@ var vehicles = JsonSerializer.Deserialize<List<VehicleMOT>>(content);
             }
             else
             {
-                Console.WriteLine($"**DEBUG** Successfully deserialized vehicleMOT: {vehicleMOT?.Make}");
-            }
+ // Debugging: Print all properties of the deserialized VehicleMOT object
+                        Console.WriteLine($"**DEBUG** Successfully deserialized vehicleMOT: {vehicleMOT.Make}, {vehicleMOT.Model}, {vehicleMOT.PrimaryColour}");
+                        Console.WriteLine($"**DEBUG** MostRecentExpiryDate: {vehicleMOT.MostRecentExpiryDate}");
+                        Console.WriteLine($"**DEBUG** MostRecentMileage: {vehicleMOT.MostRecentMileage}");
+                        Console.WriteLine($"**DEBUG** MOT Tests Count: {vehicleMOT.MotTests?.Count}");
+                                }
 
                 return vehicleMOT;
             }
@@ -63,43 +69,72 @@ var vehicles = JsonSerializer.Deserialize<List<VehicleMOT>>(content);
         }
     }
 
-public class VehicleMOT
-{
-    public string? Registration { get; set; }
-    public string? Make { get; set; }
-    public string? Model { get; set; }
-    public string? FirstUsedDate { get; set; }
-    public string? FuelType { get; set; }
-    public string? PrimaryColour { get; set; }
-    public List<MOTTest>? MotTests { get; set; }
+ public class VehicleMOT
+    {
+        [JsonPropertyName("registration")]
+        public string? Registration { get; set; }
 
-     // Computed properties
-    public string? MostRecentExpiryDate => 
-        MotTests?.OrderByDescending(test => test.ExpiryDate).FirstOrDefault()?.ExpiryDate;
+        [JsonPropertyName("make")]
+        public string? Make { get; set; }
 
-    public string? MostRecentMileage => 
-        MotTests?.OrderByDescending(test => 
-            int.TryParse(test.OdometerValue, out var mileage) ? mileage : 0)
-                 .FirstOrDefault()?.OdometerValue;
+        [JsonPropertyName("model")]
+        public string? Model { get; set; }
+
+        [JsonPropertyName("firstUsedDate")]
+        public string? FirstUsedDate { get; set; }
+
+        [JsonPropertyName("fuelType")]
+        public string? FuelType { get; set; }
+
+        [JsonPropertyName("primaryColour")]
+        public string? PrimaryColour { get; set; }
+
+        [JsonPropertyName("motTests")]
+        public List<MOTTest>? MotTests { get; set; }
+
+        // Computed properties
+        public string? MostRecentExpiryDate => 
+            MotTests?.OrderByDescending(test => test.ExpiryDate).FirstOrDefault()?.ExpiryDate;
+
+        public string? MostRecentMileage => 
+            MotTests?.OrderByDescending(test => 
+                int.TryParse(test.OdometerValue, out var mileage) ? mileage : 0)
+                     .FirstOrDefault()?.OdometerValue;
+    }
+
+    public class MOTTest
+    {
+        [JsonPropertyName("completedDate")]
+        public string? CompletedDate { get; set; }
+
+        [JsonPropertyName("testResult")]
+        public string? TestResult { get; set; }
+
+        [JsonPropertyName("expiryDate")]
+        public string? ExpiryDate { get; set; }
+
+        [JsonPropertyName("odometerValue")]
+        public string? OdometerValue { get; set; }
+
+        [JsonPropertyName("odometerUnit")]
+        public string? OdometerUnit { get; set; }
+
+        [JsonPropertyName("motTestNumber")]
+        public string? MotTestNumber { get; set; }
+
+        [JsonPropertyName("rfrAndComments")]
+        public List<RfrAndComment>? RfrAndComments { get; set; }
+    }
+
+    public class RfrAndComment
+    {
+        [JsonPropertyName("text")]
+        public string? Text { get; set; }
+
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+    }
 }
 
-public class MOTTest
-{
-    public string? CompletedDate { get; set; }
-    public string? TestResult { get; set; }
-    public string? ExpiryDate { get; set; }
-    public string? OdometerValue { get; set; }
-    public string? OdometerUnit { get; set; }
-    public string? MotTestNumber { get; set; }
-    public List<RfrAndComment>? RfrAndComments { get; set; }
-}
-
-public class RfrAndComment
-{
-    public string? Text { get; set; }
-    public string? Type { get; set; }
-}
-
-}
 
 
