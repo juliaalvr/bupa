@@ -5,7 +5,7 @@ namespace BupaMOTApp.Services
 {
     public class MOTService
     {
-        private  HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
 
         // Initializes the MOTService with an injected HttpClient for making HTTP requests.
         public MOTService(HttpClient httpClient)
