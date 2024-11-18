@@ -31,5 +31,7 @@ Make sure you have **.NET 9.0** installed.
    ```bash
    git clone https://github.com/your-username/BupaDentalCareTest.git
 2. **Clone this repository:**
-3. **Run the application**
-
+3. **Navigate to folder containing Program.cs:**
+4. **Run the application**
+ ```bash
+   dotnet run
