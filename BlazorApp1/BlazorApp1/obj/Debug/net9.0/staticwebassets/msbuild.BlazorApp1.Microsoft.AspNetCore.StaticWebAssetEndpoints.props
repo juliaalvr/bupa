@@ -4,25 +4,25 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZK3FJvaL5hwh5HeIIbCqSR7tix6\u002B/lQROcaTlSquJ2Y="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2434"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZK3FJvaL5hwh5HeIIbCqSR7tix6\u002B/lQROcaTlSquJ2Y=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 00:18:23 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2434"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZK3FJvaL5hwh5HeIIbCqSR7tix6\u002B/lQROcaTlSquJ2Y=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 01:10:54 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BlazorApp1/app.wd3poqln4g.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wd3poqln4g"},{"Name":"integrity","Value":"sha256-ZK3FJvaL5hwh5HeIIbCqSR7tix6\u002B/lQROcaTlSquJ2Y="},{"Name":"label","Value":"_content/BlazorApp1/app.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2434"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZK3FJvaL5hwh5HeIIbCqSR7tix6\u002B/lQROcaTlSquJ2Y=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 00:18:23 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2434"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022ZK3FJvaL5hwh5HeIIbCqSR7tix6\u002B/lQROcaTlSquJ2Y=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 01:10:54 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BlazorApp1/BlazorApp1.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BlazorApp1.qjkx3nyev7.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-utqziwCgnmHC0iTYvkVkoIGRlmHBu20XBfiCWlIC7Zk="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"674"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022utqziwCgnmHC0iTYvkVkoIGRlmHBu20XBfiCWlIC7Zk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 17 Nov 2024 22:59:23 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"674"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022utqziwCgnmHC0iTYvkVkoIGRlmHBu20XBfiCWlIC7Zk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 01:10:54 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BlazorApp1/BlazorApp1.qjkx3nyev7.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\BlazorApp1.qjkx3nyev7.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qjkx3nyev7"},{"Name":"integrity","Value":"sha256-utqziwCgnmHC0iTYvkVkoIGRlmHBu20XBfiCWlIC7Zk="},{"Name":"label","Value":"_content/BlazorApp1/BlazorApp1.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"674"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022utqziwCgnmHC0iTYvkVkoIGRlmHBu20XBfiCWlIC7Zk=\u0022"},{"Name":"Last-Modified","Value":"Sun, 17 Nov 2024 22:59:23 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"674"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022utqziwCgnmHC0iTYvkVkoIGRlmHBu20XBfiCWlIC7Zk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 18 Nov 2024 01:10:54 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/BlazorApp1/favicon.ifv42okdf2.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))</AssetFile>
