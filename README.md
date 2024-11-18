@@ -33,5 +33,5 @@ Make sure you have **.NET 9.0** installed.
 2. **Clone this repository:**
 3. **Navigate to folder containing Program.cs:**
 4. **Run the application**
- ```bash
+   ```bash
    dotnet run
