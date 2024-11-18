@@ -1,5 +1,3 @@
-//importing whats needed
-
 using System.Text.Json;
 using System.Text.Json.Serialization; 
 
@@ -9,6 +7,7 @@ namespace BupaMOTApp.Services
     {
         private readonly HttpClient _httpClient;
 
+        // Initializes the MOTService with an injected HttpClient for making HTTP requests.
         public MOTService(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -17,37 +16,35 @@ namespace BupaMOTApp.Services
         public async Task<VehicleMOT?> GetMOTDetailsAsync(string registration)
         {
             
-            // The base URL for the MOT API endpoint
-             // Relative URL for the MOT API endpoint
+        // The base address for the HttpClient is set in Program.cs, and the relative URL is appended here to form the full API endpoint.
             var relativeUrl = $"trade/vehicles/mot-tests?registration={registration}";
 
             _httpClient.DefaultRequestHeaders.Clear();
             _httpClient.DefaultRequestHeaders.Add("x-api-key", "fZi8YcjrZN1cGkQeZP7Uaa4rTxua8HovaswPuIno");
             
-            
-            //Console.WriteLine($"**DEBUG** API Key: {(_httpClient.DefaultRequestHeaders.Contains("x-api-key") ? "API Key Present" : "API Key Not Present")}");
-
+        
             // GET request 
             var response = await _httpClient.GetAsync(relativeUrl);
 
             //Console.WriteLine($"**DEBUG** Response Status Code: {response.StatusCode}");
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                // convert into object
-                var content = await response.Content.ReadAsStringAsync();
-                //Console.WriteLine($"**DEBUG** Response Content: {content}");
+                throw new HttpRequestException($"Error fetching MOT details for registration {registration}. Status Code: {response.StatusCode}");
+            }
+            
+            // convert into object
+            var content = await response.Content.ReadAsStringAsync();
+            //Console.WriteLine($"**DEBUG** Response Content: {content}");
 
-                //in case one registration has more than one vehicle
-                var vehicles = JsonSerializer.Deserialize<List<VehicleMOT>>(content);
-                var vehicleMOT = vehicles?.FirstOrDefault(); 
+            //in case one registration has more than one vehicle 
+            var vehicles = JsonSerializer.Deserialize<List<VehicleMOT>>(content);
+            var vehicleMOT = vehicles?.FirstOrDefault(); 
 
-                return vehicleMOT;
+            return vehicleMOT;
             }
 
-            // If the response is not successful, return null
-            return null;
-        }
+     
     }
 
  public class VehicleMOT

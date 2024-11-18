@@ -1,16 +1,26 @@
 @page "/"
 @rendermode InteractiveServer
-@using BupaMOTApp.Services  <!-- Import the MOTService namespace -->
+@using BupaMOTApp.Services  
 @inject MOTService MOTService
 
 
-<h3>Vehicle MOT Details</h3>
+<h3 class="custom-heading">
+    Vehicle MOT Details
+</h3>
 
-<div>
-    <label for="registration">Enter Registration Number:</label>
-    <input id="registration" @bind="registrationNumber" type="text" />
-    <button @onclick="GetMOTDetails">Get MOT Details</button>
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card p-3 mb-3" style="max-width: 400px; width: 100%;">
+        <h3 class="card-title text-center mb-3">Enter Vehicle Details</h3>
+        <div class="card-body ">
+            <label for="registration">Enter Registration Number:</label>
+            <input id="registration" @bind="registrationNumber" type="text" class="form-control mb-3" />
+            <button @onclick="GetMOTDetails" class="btn btn-primary w-100">Get MOT Details</button>
+        </div>
+    </div>
 </div>
+
+
 
 @if (vehicleMOT != null)
 {
@@ -29,7 +39,7 @@
 }
 
 @code {
-     private string registrationNumber = string.Empty;  // Initialize with an empty string
+     private string registrationNumber = string.Empty;  
     private VehicleMOT? vehicleMOT = null;  
 
     private async Task GetMOTDetails()
@@ -38,7 +48,7 @@
         if (!string.IsNullOrEmpty(registrationNumber))
         {
             vehicleMOT = await MOTService.GetMOTDetailsAsync(registrationNumber);
-            //Console.WriteLine($"MOT details fetched: {vehicleMOT?.Make}");
+        //Console.WriteLine($"MOT details fetched: {vehicleMOT?.Make}");
         }
         else
         {

@@ -1,5 +1,5 @@
 using BlazorApp1.Components;
-using BupaMOTApp.Services;    // Import the MOTService namespace
+using BupaMOTApp.Services;   
 
 
 //setting up the web application
